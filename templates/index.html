@@ -5,5 +5,22 @@
 </head>
 <body>
 <h1>This is where we get our easy ids.</h1>
+<form method="POST" action="/">
+    <input type="text" name="input_string"
+    value=
+    {% if value %}
+    "{{value}}""
+    {% else %}
+    ""
+    {% endif %}>
+
+    <input type="submit">
+
+</form>
+{% if value %}
+<h1>The easy id for “{{value}}” is “{{gid}}.”</h1>
+{% else %}
+<h1>Submit the form to get an ID.</h1>
+{% endif %}
 </body>
 </html>
