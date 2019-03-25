@@ -6,7 +6,7 @@ Created on Sat Mar 23 13:25:54 2019
 @author: steve
 """
 import random
-import zlib
+import hashlib
 
 NOUN_FILE='5_1_all_rank_noun.txt'
 ADJECTIVE_FILE='5_3_all_rank_adjective.txt'
@@ -20,9 +20,14 @@ adjectives=[a for a in[line.split()[0] for line in open(ADJECTIVE_FILE).readline
 
 def easy_id(some_value):
     norm_string=str(some_value).upper().encode('utf-8')
-    ha=zlib.adler32(norm_string) 
+    m=hashlib.md5()
+    m.update(norm_string)
+    hahex=m.hexdigest()
+    ha=int(hahex,16)
     adj=adjectives[ha%len(adjectives)]
-    hn=zlib.adler32(norm_string+b'!')
+    m.update(b"!")
+    hnhex=m.hexdigest()
+    hn=int(hahex,16)
     noun=nouns[hn%len(nouns)]
     return '%s %s'%(adj,noun)
 
