@@ -20,12 +20,6 @@ def index():
     else:
         return render_template('index.html')    
 
-@app.route('/easyid/')
-@app.route('/easyid/<some_value>')
-def easyid(some_value=None):
-    easy=ei.easy_id(some_value)
-    return render_template('showid.html',value=some_value,gid=easy)
-
 
 @app.route('/api/easyid/<some_value>')
 def apieasyid(some_value):

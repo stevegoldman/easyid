@@ -22,12 +22,12 @@ def easy_id(some_value):
     norm_string=str(some_value).upper().encode('utf-8')
     m=hashlib.md5()
     m.update(norm_string)
-    hahex=m.hexdigest()
-    ha=int(hahex,16)
+    hd=m.hexdigest()
+    # 16 upper bytes of the md5 hash
+    ha=int(hd[:16],16)
     adj=adjectives[ha%len(adjectives)]
-    m.update(b"!")
-    hnhex=m.hexdigest()
-    hn=int(hahex,16)
+    # 16 lower bytes of the md5 hash
+    hn=int(hd[17:],16)
     noun=nouns[hn%len(nouns)]
     return '%s %s'%(adj,noun)
 
