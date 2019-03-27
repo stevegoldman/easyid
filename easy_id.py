@@ -7,16 +7,22 @@ Created on Sat Mar 23 13:25:54 2019
 """
 import random
 import hashlib
+import os
 
 NOUN_FILE='5_1_all_rank_noun.txt'
 ADJECTIVE_FILE='5_3_all_rank_adjective.txt'
 
+curdirectory=os.path.dirname(__file__)
 
-nouns=[n for n in[line.split()[0] for line in open(NOUN_FILE).readlines()] \
+nounfile=os.path.join(curdirectory,NOUN_FILE)
+adjfile=os.path.join(curdirectory,ADJECTIVE_FILE)
+
+
+nouns=[n for n in[line.split()[0] for line in open(nounfile).readlines()] \
                   if len(n)>2 and len(n)<11]
-adjectives=[a for a in[line.split()[0] for line in open(ADJECTIVE_FILE).readlines()] \
+                  
+adjectives=[a for a in[line.split()[0] for line in open(adjfile).readlines()] \
                        if len(a)>2 and len(a)<11]
-
 
 def easy_id(some_value):
     norm_string=str(some_value).upper().encode('utf-8')
