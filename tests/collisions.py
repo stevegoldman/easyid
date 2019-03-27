@@ -1,11 +1,17 @@
 
+import os
 import sys
 #surely there's a better way
 sys.path.append('/Users/steve/easyid')
 import easy_id
 import collections
 loads=collections.defaultdict(dict)
-for line in open('manifest_lines.csv').readlines()[1:]:
+#All this is necessary because the module can be loaded from
+#other working directories.
+curdirectory=os.path.dirname(__file__)
+manifestfile=os.path.join(curdirectory,'manifest_lines.csv')
+
+for line in open(manifestfile).readlines()[1:]:
     wo,load,profile,manifest=line.split(',')
     #strip crlf
     manifest=manifest[:-1]

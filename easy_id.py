@@ -34,7 +34,7 @@ def easy_id(some_value):
     ha=int(hd[:16],16)
     adj=adjectives[ha%len(adjectives)]
     # 16 lower bytes of the md5 hash
-    hn=int(hd[17:],16)
+    hn=int(hd[16:],16)
     noun=nouns[hn%len(nouns)]
     return '%s %s'%(adj,noun)
 
