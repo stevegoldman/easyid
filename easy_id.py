@@ -12,8 +12,9 @@ import os
 NOUN_FILE='5_1_all_rank_noun.txt'
 ADJECTIVE_FILE='5_3_all_rank_adjective.txt'
 
+#All this is necessary because the module can be loaded from
+#other working directories.
 curdirectory=os.path.dirname(__file__)
-
 nounfile=os.path.join(curdirectory,NOUN_FILE)
 adjfile=os.path.join(curdirectory,ADJECTIVE_FILE)
 

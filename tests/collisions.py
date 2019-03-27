@@ -9,8 +9,10 @@ for line in open('manifest_lines.csv').readlines()[1:]:
     wo,load,profile,manifest=line.split(',')
     #strip crlf
     manifest=manifest[:-1]
-    #print(easy_id.easy_id(profile+manifest))
-    loads[load][(profile,manifest)]=easy_id.easy_id(profile+manifest)
+    eid=easy_id.easy_id(profile+manifest)
+    loads[load][(profile,manifest)]=eid    
+
+    
 
 print("There are %d loads"%len(loads.keys()))
 print("There are %d profile/manifests"%sum([len(v.keys())for (k,v) in loads.items()]))
@@ -25,4 +27,4 @@ for (k,v) in loads.items():
         else:
             collisions[v1].append(k1)    
 
-print ("%d collisions"%collision_count)
+print ("%d collisions within loads"%collision_count)
