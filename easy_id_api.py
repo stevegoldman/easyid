@@ -11,21 +11,6 @@ from flask import Flask,json,request,render_template
 from werkzeug.exceptions import BadRequest
 app=Flask(__name__)
 
-# class InvalidUsage(Exception):
-#     status_code = 400
-
-#     def __init__(self, message, status_code=None, payload=None):
-#         Exception.__init__(self)
-#         self.message = message
-#         if status_code is not None:
-#             self.status_code = status_code
-#         self.payload = payload
-
-#     def to_dict(self):
-#         rv = dict(self.payload or ())
-#         rv['message'] = self.message
-#         return rv
-
 @app.errorhandler(400)
 def handle_invalid_usage(ex):
     response = json.jsonify(error=ex.description)
@@ -44,7 +29,8 @@ def index():
 
 @app.route('/api/easyid/<some_value>')
 def apieasyid(some_value):
-    return json.jsonify(id=ei.easy_id(some_value))
+    return json.jsonify(easyid=ei.easy_id(some_value),
+                         input_string=some_value)
 
 @app.route('/api/easyids/',methods=['POST'])
 def api_multiple():
@@ -71,7 +57,7 @@ def multiple_ids(python_list_of_strings):
     ret=[]
     for s in python_list_of_strings:
         r={}
-        r['string']=s
+        r['input_string']=s
         r['easyid']=ei.easy_id(s)
         ret.append(r)
     return json.jsonify(ret)    
