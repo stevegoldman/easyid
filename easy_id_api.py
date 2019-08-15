@@ -36,6 +36,7 @@ def apieasyid(some_value):
 def api_multiple():
     if request.get_json():
         los=request.get_json()
+        # We must work on a list of strings
         if type(los)==type([]):
             ok=True
             for s in los:
