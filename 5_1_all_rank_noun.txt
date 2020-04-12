@@ -2397,7 +2397,6 @@
 	dancer	14
 	habitat	14
 	joint	14
-	&pound;1	14
 	pencil	14
 	discharge	14
 	graph	14
@@ -2490,7 +2489,6 @@
 	double	13
 	donation	13
 	whale	13
-	10%	13
 	harmony	13
 	privatisation	13
 	predator	13
@@ -2522,7 +2520,6 @@
 	lordship	13
 	outsider	13
 	dignity	13
-	&pound;100	13
 	woodland	13
 	calendar	13
 	loop	13
@@ -2819,7 +2816,6 @@
 	ballot	11
 	assertion	11
 	rev	11
-	&pound;10	11
 	warrior	11
 	preservation	11
 	solidarity	11
@@ -2837,7 +2833,6 @@
 	majesty	11
 	query	11
 	close	11
-	50%	11
 	dominance	11
 	supervisor	11
 	survivor	11
@@ -2908,7 +2903,6 @@
 	monitor	11
 	madame	11
 	proceed	11
-	20%	11
 	fit	11
 	appetite	11
 	nuisance	11
@@ -3019,7 +3013,6 @@
 	housewife	10
 	fax	10
 	ribbon	10
-	&pound;1,000	10
 	ant	10
 	colitis	10
 	wheat	10
