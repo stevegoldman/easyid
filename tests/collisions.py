@@ -19,7 +19,8 @@ for line in open(manifestfile).readlines()[1:]:
     loads[load][(profile,manifest)]=eid    
 
     
-
+print ("There are %d adjectives"%len(easy_id.adjectives))
+print ("There are %d nounds"%len(easy_id.nouns))
 print("There are %d loads"%len(loads.keys()))
 print("There are %d profile/manifests"%sum([len(v.keys())for (k,v) in loads.items()]))
 collision_count=0

@@ -31,12 +31,13 @@ def easy_id(some_value):
     m.update(norm_string)
     hd=m.hexdigest()
     # 16 upper bytes of the md5 hash
-    ha=int(hd[:16],16)
+    ha=int(hd[:15],16)
     adj=adjectives[ha%len(adjectives)]
     # 16 lower bytes of the md5 hash
-    hn=int(hd[16:],16)
+    hn=int(hd[15:30],16)
     noun=nouns[hn%len(nouns)]
-    return '%s %s'%(adj,noun)
+    suf=int(hd[30:],16)
+    return '%s %s %s'%(adj,noun,suf)
 
 
 if __name__=='__main__':
